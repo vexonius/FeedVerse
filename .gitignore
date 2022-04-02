@@ -60,11 +60,6 @@ xcuserdata/
 # Carthage
 */Carthage/
 
-# CocoaPods
-/Project/FORApp/Pods/
-
-# Icon Versioning
-/Project/FORApp/Resources/Images.xcassets/AppIcon-Internal.appiconset/
 
 # Fastlane
 fastlane/*
@@ -72,3 +67,4 @@ fastlane/*
 !fastlane/makeChangelog.sh
 report-task.txt
 sonar-reports
+/FeedVerse.xcodeproj/xcuserdata/tinoemer.xcuserdatad/xcschemes/xcschememanagement.plist
