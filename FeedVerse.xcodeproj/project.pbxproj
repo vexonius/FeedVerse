@@ -11,6 +11,7 @@
 		F055636027F6F60100AA840E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F055635F27F6F60100AA840E /* HomeViewController.swift */; };
 		F055636527F6F60100AA840E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F055636427F6F60100AA840E /* Assets.xcassets */; };
 		F055636827F6F60100AA840E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F055636627F6F60100AA840E /* LaunchScreen.storyboard */; };
+		F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F087D7B627FAE689008849F5 /* NetworkClient.swift */; };
 		F0A9390E27F86BDC009675BF /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0A9390D27F86BDC009675BF /* RxAlamofire */; };
 		F0A9391027F87F5D009675BF /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9390F27F87F5D009675BF /* FeedService.swift */; };
 		F0A9391227F88713009675BF /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9391127F88713009675BF /* Feed.swift */; };
@@ -19,6 +20,7 @@
 		F0B8DEAA27F7D8360031E23E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA927F7D8360031E23E /* RxSwift */; };
 		F0B8DEAD27F7D8750031E23E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEAC27F7D8750031E23E /* SnapKit */; };
 		F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F0FCAA9727F89A5200EED4B2 /* XMLCoder */; };
+		F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +30,10 @@
 		F055636427F6F60100AA840E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F055636727F6F60100AA840E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F055636927F6F60100AA840E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F087D7B627FAE689008849F5 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		F0A9390F27F87F5D009675BF /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		F0A9391127F88713009675BF /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,14 @@
 			path = FeedVerse;
 			sourceTree = "<group>";
 		};
+		F087D7B527FAE67D008849F5 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F087D7B627FAE689008849F5 /* NetworkClient.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F0B8DE9D27F7D4560031E23E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +111,8 @@
 		F0B8DE9F27F7D4660031E23E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				F0A9390F27F87F5D009675BF /* FeedService.swift */,
+				F087D7B527FAE67D008849F5 /* Base */,
+				F0FEF82D27FA28AD00590C5B /* Services */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -133,6 +146,15 @@
 				F055635F27F6F60100AA840E /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F0FEF82D27FA28AD00590C5B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F0A9390F27F87F5D009675BF /* FeedService.swift */,
+				F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */,
 				F055636027F6F60100AA840E /* HomeViewController.swift in Sources */,
 				F0A9391227F88713009675BF /* Feed.swift in Sources */,
 				F055635C27F6F60100AA840E /* AppDelegate.swift in Sources */,
+				F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */,
 				F0A9391027F87F5D009675BF /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
