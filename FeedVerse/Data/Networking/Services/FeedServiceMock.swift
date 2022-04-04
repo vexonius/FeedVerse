@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import XMLCoder
 
+//disable:this:swiftlint
 final class FeedServiceMock {
 
     func fetchRSSFeed(url: String) -> Single<Feed> {

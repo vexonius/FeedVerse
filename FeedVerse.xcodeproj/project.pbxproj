@@ -75,11 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				F0B8DEA127F7D48E0031E23E /* Application */,
-				F0B8DE9E27F7D45D0031E23E /* Common */,
-				F0B8DE9D27F7D4560031E23E /* Scenes */,
-				F055636427F6F60100AA840E /* Assets.xcassets */,
-				F055636627F6F60100AA840E /* LaunchScreen.storyboard */,
-				F055636927F6F60100AA840E /* Info.plist */,
+				F0D4645A27FB997B0033EB54 /* Data */,
+				F0D4645927FB99740033EB54 /* Domain */,
+				F0D4645827FB995A0033EB54 /* Presentation */,
+				F0D4645C27FB9CCB0033EB54 /* Supporting files */,
 			);
 			path = FeedVerse;
 			sourceTree = "<group>";
@@ -90,24 +89,6 @@
 				F087D7B627FAE689008849F5 /* NetworkClient.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		F0B8DE9D27F7D4560031E23E /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				F0B8DEA327F7D4AC0031E23E /* Home */,
-				F0B8DEA227F7D49E0031E23E /* Onboarding */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		F0B8DE9E27F7D45D0031E23E /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				F0B8DEA027F7D4750031E23E /* Models */,
-				F0B8DE9F27F7D4660031E23E /* Networking */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		F0B8DE9F27F7D4660031E23E /* Networking */ = {
@@ -140,7 +121,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Onboarding;
+			name = Onboarding;
+			path = Scenes/Onboarding;
 			sourceTree = "<group>";
 		};
 		F0B8DEA327F7D4AC0031E23E /* Home */ = {
@@ -157,6 +139,41 @@
 				F0A9391127F88713009675BF /* FeedDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		F0D4645827FB995A0033EB54 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F0B8DEA227F7D49E0031E23E /* Onboarding */,
+				F0B8DEA327F7D4AC0031E23E /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F0D4645927FB99740033EB54 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F0D4645A27FB997B0033EB54 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F0B8DE9F27F7D4660031E23E /* Networking */,
+				F0B8DEA027F7D4750031E23E /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F0D4645C27FB9CCB0033EB54 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				F055636927F6F60100AA840E /* Info.plist */,
+				F055636627F6F60100AA840E /* LaunchScreen.storyboard */,
+				F055636427F6F60100AA840E /* Assets.xcassets */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		F0FEF82D27FA28AD00590C5B /* Services */ = {
@@ -178,6 +195,7 @@
 				F055635427F6F60100AA840E /* Sources */,
 				F055635527F6F60100AA840E /* Frameworks */,
 				F055635627F6F60100AA840E /* Resources */,
+				F0D4645B27FB9C500033EB54 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -399,7 +417,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G94YBLPX8A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FeedVerse/Info.plist;
+				INFOPLIST_FILE = "FeedVerse/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -427,7 +445,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G94YBLPX8A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FeedVerse/Info.plist;
+				INFOPLIST_FILE = "FeedVerse/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
