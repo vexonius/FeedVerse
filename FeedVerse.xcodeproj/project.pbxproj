@@ -11,10 +11,17 @@
 		F055636027F6F60100AA840E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F055635F27F6F60100AA840E /* HomeViewController.swift */; };
 		F055636527F6F60100AA840E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F055636427F6F60100AA840E /* Assets.xcassets */; };
 		F055636827F6F60100AA840E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F055636627F6F60100AA840E /* LaunchScreen.storyboard */; };
+		F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F087D7B627FAE689008849F5 /* NetworkClient.swift */; };
+		F0A9390E27F86BDC009675BF /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0A9390D27F86BDC009675BF /* RxAlamofire */; };
+		F0A9391027F87F5D009675BF /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9390F27F87F5D009675BF /* FeedService.swift */; };
+		F0A9391227F88713009675BF /* FeedDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9391127F88713009675BF /* FeedDTO.swift */; };
 		F0B8DEA627F7D8360031E23E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA527F7D8360031E23E /* RxCocoa */; };
 		F0B8DEA827F7D8360031E23E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA727F7D8360031E23E /* RxRelay */; };
 		F0B8DEAA27F7D8360031E23E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA927F7D8360031E23E /* RxSwift */; };
 		F0B8DEAD27F7D8750031E23E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEAC27F7D8750031E23E /* SnapKit */; };
+		F0D4645727FB353D0033EB54 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4645627FB353D0033EB54 /* Feed.swift */; };
+		F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F0FCAA9727F89A5200EED4B2 /* XMLCoder */; };
+		F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,11 @@
 		F055636427F6F60100AA840E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F055636727F6F60100AA840E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F055636927F6F60100AA840E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F087D7B627FAE689008849F5 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		F0A9390F27F87F5D009675BF /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		F0A9391127F88713009675BF /* FeedDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDTO.swift; sourceTree = "<group>"; };
+		F0D4645627FB353D0033EB54 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,9 +43,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */,
 				F0B8DEAA27F7D8360031E23E /* RxSwift in Frameworks */,
 				F0B8DEAD27F7D8750031E23E /* SnapKit in Frameworks */,
 				F0B8DEA827F7D8360031E23E /* RxRelay in Frameworks */,
+				F0A9390E27F86BDC009675BF /* RxAlamofire in Frameworks */,
 				F0B8DEA627F7D8360031E23E /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +84,14 @@
 			path = FeedVerse;
 			sourceTree = "<group>";
 		};
+		F087D7B527FAE67D008849F5 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F087D7B627FAE689008849F5 /* NetworkClient.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F0B8DE9D27F7D4560031E23E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +104,7 @@
 		F0B8DE9E27F7D45D0031E23E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F0B8DEA027F7D4750031E23E /* Entity */,
+				F0B8DEA027F7D4750031E23E /* Models */,
 				F0B8DE9F27F7D4660031E23E /* Networking */,
 			);
 			path = Common;
@@ -91,15 +113,19 @@
 		F0B8DE9F27F7D4660031E23E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F087D7B527FAE67D008849F5 /* Base */,
+				F0FEF82D27FA28AD00590C5B /* Services */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		F0B8DEA027F7D4750031E23E /* Entity */ = {
+		F0B8DEA027F7D4750031E23E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F0D4645327FB32C70033EB54 /* DTO */,
+				F0D4645627FB353D0033EB54 /* Feed.swift */,
 			);
-			path = Entity;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F0B8DEA127F7D48E0031E23E /* Application */ = {
@@ -125,6 +151,23 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		F0D4645327FB32C70033EB54 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F0A9391127F88713009675BF /* FeedDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		F0FEF82D27FA28AD00590C5B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F0A9390F27F87F5D009675BF /* FeedService.swift */,
+				F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +189,8 @@
 				F0B8DEA727F7D8360031E23E /* RxRelay */,
 				F0B8DEA927F7D8360031E23E /* RxSwift */,
 				F0B8DEAC27F7D8750031E23E /* SnapKit */,
+				F0A9390D27F86BDC009675BF /* RxAlamofire */,
+				F0FCAA9727F89A5200EED4B2 /* XMLCoder */,
 			);
 			productName = FeedVerse;
 			productReference = F055635827F6F60100AA840E /* FeedVerse.app */;
@@ -178,6 +223,8 @@
 			packageReferences = (
 				F0B8DEA427F7D8360031E23E /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F0B8DEAB27F7D8750031E23E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F0A9390C27F86BDC009675BF /* XCRemoteSwiftPackageReference "RxAlamofire" */,
+				F0FCAA9627F89A5200EED4B2 /* XCRemoteSwiftPackageReference "XMLCoder" */,
 			);
 			productRefGroup = F055635927F6F60100AA840E /* Products */;
 			projectDirPath = "";
@@ -205,8 +252,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */,
 				F055636027F6F60100AA840E /* HomeViewController.swift in Sources */,
+				F0A9391227F88713009675BF /* FeedDTO.swift in Sources */,
+				F0D4645727FB353D0033EB54 /* Feed.swift in Sources */,
 				F055635C27F6F60100AA840E /* AppDelegate.swift in Sources */,
+				F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */,
+				F0A9391027F87F5D009675BF /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +470,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F0A9390C27F86BDC009675BF /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F0B8DEA427F7D8360031E23E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -434,9 +494,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F0FCAA9627F89A5200EED4B2 /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/XMLCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F0A9390D27F86BDC009675BF /* RxAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0A9390C27F86BDC009675BF /* XCRemoteSwiftPackageReference "RxAlamofire" */;
+			productName = RxAlamofire;
+		};
 		F0B8DEA527F7D8360031E23E /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F0B8DEA427F7D8360031E23E /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -456,6 +529,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F0B8DEAB27F7D8750031E23E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F0FCAA9727F89A5200EED4B2 /* XMLCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0FCAA9627F89A5200EED4B2 /* XCRemoteSwiftPackageReference "XMLCoder" */;
+			productName = XMLCoder;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
