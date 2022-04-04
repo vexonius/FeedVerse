@@ -20,7 +20,28 @@ protocol ResponseDecoder {
     func decode<T: Decodable>(_ data: Data) throws -> T
 }
 
-final class NetworkClient: NetworkClientProvider {
+final class NetworkClient {
+
+    private func decode<T: Decodable>(data: Data, decoder: ResponseDecoder) throws -> T {
+        return try decoder.decode(data)
+    }
+
+    private func parseResponseError(code: Int) -> NetworkClientError {
+        switch code {
+            case 400..<500:
+                return .clientError
+            case 500..<600:
+                return .serverError
+            case -1009:
+                return .noConnection
+            default:
+                return .generic
+        }
+    }
+
+}
+
+extension NetworkClient: NetworkClientProvider {
 
     func get<T: Decodable>(path: String, params: [String: String] = [:] , headers: [String: String] = [:], encoding: URLEncoding = .default, responseType: T.Type) -> Single<T> {
         RxAlamofire.request(.get, path, parameters: params, encoding: encoding, headers: HTTPHeaders(headers))
@@ -64,23 +85,6 @@ final class NetworkClient: NetworkClientProvider {
                 return Single.just(decodedResponse)
             }
             .asSingle()
-    }
-
-    private func decode<T: Decodable>(data: Data, decoder: ResponseDecoder) throws -> T {
-        return try decoder.decode(data)
-    }
-
-    private func parseResponseError(code: Int) -> NetworkClientError {
-        switch code {
-            case 400..<500:
-                return .clientError
-            case 500..<600:
-                return .serverError
-            case -1009:
-                return .noConnection
-            default:
-                return .generic
-        }
     }
 
 }

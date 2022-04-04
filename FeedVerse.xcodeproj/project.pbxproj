@@ -14,11 +14,12 @@
 		F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F087D7B627FAE689008849F5 /* NetworkClient.swift */; };
 		F0A9390E27F86BDC009675BF /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0A9390D27F86BDC009675BF /* RxAlamofire */; };
 		F0A9391027F87F5D009675BF /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9390F27F87F5D009675BF /* FeedService.swift */; };
-		F0A9391227F88713009675BF /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9391127F88713009675BF /* Feed.swift */; };
+		F0A9391227F88713009675BF /* FeedDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9391127F88713009675BF /* FeedDTO.swift */; };
 		F0B8DEA627F7D8360031E23E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA527F7D8360031E23E /* RxCocoa */; };
 		F0B8DEA827F7D8360031E23E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA727F7D8360031E23E /* RxRelay */; };
 		F0B8DEAA27F7D8360031E23E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA927F7D8360031E23E /* RxSwift */; };
 		F0B8DEAD27F7D8750031E23E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEAC27F7D8750031E23E /* SnapKit */; };
+		F0D4645727FB353D0033EB54 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4645627FB353D0033EB54 /* Feed.swift */; };
 		F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F0FCAA9727F89A5200EED4B2 /* XMLCoder */; };
 		F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */; };
 /* End PBXBuildFile section */
@@ -32,7 +33,8 @@
 		F055636927F6F60100AA840E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F087D7B627FAE689008849F5 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		F0A9390F27F87F5D009675BF /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
-		F0A9391127F88713009675BF /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		F0A9391127F88713009675BF /* FeedDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDTO.swift; sourceTree = "<group>"; };
+		F0D4645627FB353D0033EB54 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +104,7 @@
 		F0B8DE9E27F7D45D0031E23E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F0B8DEA027F7D4750031E23E /* Entity */,
+				F0B8DEA027F7D4750031E23E /* Models */,
 				F0B8DE9F27F7D4660031E23E /* Networking */,
 			);
 			path = Common;
@@ -117,12 +119,13 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		F0B8DEA027F7D4750031E23E /* Entity */ = {
+		F0B8DEA027F7D4750031E23E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F0A9391127F88713009675BF /* Feed.swift */,
+				F0D4645327FB32C70033EB54 /* DTO */,
+				F0D4645627FB353D0033EB54 /* Feed.swift */,
 			);
-			path = Entity;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F0B8DEA127F7D48E0031E23E /* Application */ = {
@@ -146,6 +149,14 @@
 				F055635F27F6F60100AA840E /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F0D4645327FB32C70033EB54 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F0A9391127F88713009675BF /* FeedDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		F0FEF82D27FA28AD00590C5B /* Services */ = {
@@ -243,7 +254,8 @@
 			files = (
 				F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */,
 				F055636027F6F60100AA840E /* HomeViewController.swift in Sources */,
-				F0A9391227F88713009675BF /* Feed.swift in Sources */,
+				F0A9391227F88713009675BF /* FeedDTO.swift in Sources */,
+				F0D4645727FB353D0033EB54 /* Feed.swift in Sources */,
 				F055635C27F6F60100AA840E /* AppDelegate.swift in Sources */,
 				F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */,
 				F0A9391027F87F5D009675BF /* FeedService.swift in Sources */,

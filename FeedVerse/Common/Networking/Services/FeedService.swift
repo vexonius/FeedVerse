@@ -19,10 +19,28 @@ final class FeedService: FeedServiceProvider {
     let client: NetworkClientProvider = NetworkClient()
 
     func fetchRSSFeed(url: String) -> Single<Feed> {
-        client.get(path: url, params: [:], headers: [:], encoding: .default, responseType: Feed.self)
-            .flatMap { feed -> Single<Feed> in
-                return .just(feed)
+        client.get(path: url, params: [:], headers: [:], encoding: .default, responseType: FeedDTO.self)
+            .observe(on: ConcurrentDispatchQueueScheduler.init(queue: .global()))
+            .flatMap { [weak self] feedDTO -> Single<Feed> in
+                guard let self = self else {
+                    return .error(FeedServiceError.unknownError)
+                }
+
+                let flattenedFeed = self.flattenFeedDTO(from: feedDTO)
+
+                return .just(flattenedFeed)
             }
     }
 
+    private func flattenFeedDTO(from feedDTO: FeedDTO) -> Feed {
+        Feed(
+            publication: Publication(from: feedDTO.publication),
+             articles: feedDTO.publication.articles.map { Article(from: $0) }
+        )
+    }
+
+}
+
+enum FeedServiceError: Error {
+    case unknownError
 }

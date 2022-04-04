@@ -9,22 +9,35 @@ import Foundation
 import RxSwift
 import XMLCoder
 
-final class FeedServiceMock: FeedServiceProvider {
+final class FeedServiceMock {
 
     func fetchRSSFeed(url: String) -> Single<Feed> {
         let data = Data(mockedData.utf8)
 
-        return Single<Feed>.create { single in
+        return Single<Feed>.create { [weak self] single in
             let parser = XMLDecoder()
 
-            guard let feed = try? parser.decode(Feed.self, from: data) else {
+            guard let feedDTO = try? parser.decode(FeedDTO.self, from: data) else {
                 single(.failure(NetworkClientError.decodingFailed))
+                return Disposables.create()
+            }
+
+            guard let feed = self?.flattenFeedDTO(from: feedDTO) else {
+                 single(.failure(NetworkClientError.decodingFailed))
                 return Disposables.create()
             }
 
             single(.success(feed))
             return Disposables.create()
         }
+    }
+
+
+    private func flattenFeedDTO(from feedDTO: FeedDTO) -> Feed {
+        Feed(
+            publication: Publication(from: feedDTO.publication),
+            articles: feedDTO.publication.articles.map { Article(from: $0) }
+        )
     }
 
 

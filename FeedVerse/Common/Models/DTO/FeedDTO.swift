@@ -8,9 +8,9 @@
 import Foundation
 import XMLCoder
 
-struct Feed: Decodable {
+struct FeedDTO: Decodable {
     let version: String
-    let publication: Publication
+    let publication: PublicationDTO
 
     enum CodingKeys: String, CodingKey {
         case version
@@ -18,15 +18,17 @@ struct Feed: Decodable {
     }
 }
 
-struct Publication: Decodable {
+struct PublicationDTO: Decodable {
     let title: String
     let description: String
+    let link: String
     let publicationImage: PublicationImage?
-    let articles: [Article]
+    let articles: [ArticleDTO]
 
     enum CodingKeys: String, CodingKey {
         case title
         case description
+        case link
         case publicationImage = "image"
         case articles = "item"
     }
@@ -36,7 +38,7 @@ struct PublicationImage: Decodable {
     let url: String?
 }
 
-struct Article: Decodable {
+struct ArticleDTO: Decodable {
     let title: String
     let description: String
     let link: String
@@ -69,11 +71,12 @@ struct Enclosure: Decodable {
     let value: String?
 }
 
-enum EnclosureType: String {
+enum EnclosureTypeDTO: String {
     case jpeg = "image/jpeg"
     case png = "image/png"
     case svg = "image/svg+xml"
     case mp4 = "video/mp4"
     case mpeg = "video/mpeg"
+    case mpegAudio = "audio/mpeg"
     case unknown = ""
 }
