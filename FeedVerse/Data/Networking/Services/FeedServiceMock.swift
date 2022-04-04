@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 import XMLCoder
 
-//disable:this:swiftlint
 final class FeedServiceMock {
 
     func fetchRSSFeed(url: String) -> Single<Feed> {
@@ -33,14 +32,12 @@ final class FeedServiceMock {
         }
     }
 
-
     private func flattenFeedDTO(from feedDTO: FeedDTO) -> Feed {
         Feed(
             publication: Publication(from: feedDTO.publication),
             articles: feedDTO.publication.articles.map { Article(from: $0) }
         )
     }
-
 
     let mockedData = """
 <?xml version="1.0" encoding="utf-8" ?> <rss version="2.0" xml:base="https://news.un.org/en/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:yandex="http://news.yandex.ru" xmlns:media="http://search.yahoo.com/mrss/"> <channel> <title>UN News - Europe</title>

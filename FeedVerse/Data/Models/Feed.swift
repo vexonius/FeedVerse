@@ -73,5 +73,3 @@ struct Article: Hashable {
     }
 
 }
-
-
