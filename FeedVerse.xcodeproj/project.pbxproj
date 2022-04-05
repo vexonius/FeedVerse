@@ -20,6 +20,7 @@
 		F0B8DEAA27F7D8360031E23E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEA927F7D8360031E23E /* RxSwift */; };
 		F0B8DEAD27F7D8750031E23E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F0B8DEAC27F7D8750031E23E /* SnapKit */; };
 		F0D4645727FB353D0033EB54 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4645627FB353D0033EB54 /* Feed.swift */; };
+		F0D4646327FBB46E0033EB54 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4646227FBB46E0033EB54 /* BaseViewController.swift */; };
 		F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F0FCAA9727F89A5200EED4B2 /* XMLCoder */; };
 		F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		F0D4645827FB995A0033EB54 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F0D4646127FBB4600033EB54 /* Base */,
 				F0B8DEA227F7D49E0031E23E /* Onboarding */,
 				F0B8DEA327F7D4AC0031E23E /* Home */,
 			);
@@ -174,6 +176,14 @@
 				F055636427F6F60100AA840E /* Assets.xcassets */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		F0D4646127FBB4600033EB54 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F0D4646227FBB46E0033EB54 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		F0FEF82D27FA28AD00590C5B /* Services */ = {
