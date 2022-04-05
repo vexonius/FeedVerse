@@ -13,6 +13,8 @@
 		F055636827F6F60100AA840E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F055636627F6F60100AA840E /* LaunchScreen.storyboard */; };
 		F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F087D7B627FAE689008849F5 /* NetworkClient.swift */; };
 		F0A2A04127FBBCFC00C22BB6 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2A04027FBBCFC00C22BB6 /* CustomView.swift */; };
+		F0A2A04427FC2B4D00C22BB6 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F0A2A04327FC2B4D00C22BB6 /* Differentiator */; };
+		F0A2A04627FC2B4D00C22BB6 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F0A2A04527FC2B4D00C22BB6 /* RxDataSources */; };
 		F0A9390E27F86BDC009675BF /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0A9390D27F86BDC009675BF /* RxAlamofire */; };
 		F0A9391027F87F5D009675BF /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9390F27F87F5D009675BF /* FeedService.swift */; };
 		F0A9391227F88713009675BF /* FeedDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9391127F88713009675BF /* FeedDTO.swift */; };
@@ -239,6 +241,8 @@
 				F0B8DEAC27F7D8750031E23E /* SnapKit */,
 				F0A9390D27F86BDC009675BF /* RxAlamofire */,
 				F0FCAA9727F89A5200EED4B2 /* XMLCoder */,
+				F0A2A04327FC2B4D00C22BB6 /* Differentiator */,
+				F0A2A04527FC2B4D00C22BB6 /* RxDataSources */,
 			);
 			productName = FeedVerse;
 			productReference = F055635827F6F60100AA840E /* FeedVerse.app */;
@@ -273,6 +277,7 @@
 				F0B8DEAB27F7D8750031E23E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F0A9390C27F86BDC009675BF /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 				F0FCAA9627F89A5200EED4B2 /* XCRemoteSwiftPackageReference "XMLCoder" */,
+				F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = F055635927F6F60100AA840E /* Products */;
 			projectDirPath = "";
@@ -543,6 +548,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		F0A9390C27F86BDC009675BF /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire";
@@ -578,6 +591,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F0A2A04327FC2B4D00C22BB6 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		F0A2A04527FC2B4D00C22BB6 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		F0A9390D27F86BDC009675BF /* RxAlamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F0A9390C27F86BDC009675BF /* XCRemoteSwiftPackageReference "RxAlamofire" */;
