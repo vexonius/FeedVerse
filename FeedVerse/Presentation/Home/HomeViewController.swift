@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController, HasCustomView {
+
+    typealias CustomView = HomeView
+
+    override func loadView() {
+        view = HomeView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
