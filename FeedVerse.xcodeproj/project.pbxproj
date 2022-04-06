@@ -27,6 +27,8 @@
 		F0D4646027FBADF10033EB54 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4645F27FBADF10033EB54 /* ArticleCell.swift */; };
 		F0D4646327FBB46E0033EB54 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4646227FBB46E0033EB54 /* BaseViewController.swift */; };
 		F0DF45E127FC5B13000EA644 /* ArticleSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF45E027FC5B13000EA644 /* ArticleSectionModel.swift */; };
+		F0DF45E527FC996E000EA644 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F0DF45E427FC996E000EA644 /* Nuke */; };
+		F0F9B56627FCFC5D001C51B9 /* AppDelegate+Nuke.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9B56527FCFC5D001C51B9 /* AppDelegate+Nuke.swift */; };
 		F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F0FCAA9727F89A5200EED4B2 /* XMLCoder */; };
 		F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0DF45E527FC996E000EA644 /* Nuke in Frameworks */,
 				F0A2A04427FC2B4D00C22BB6 /* Differentiator in Frameworks */,
 				F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */,
 				F0B8DEAA27F7D8360031E23E /* RxSwift in Frameworks */,
@@ -136,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				F055635B27F6F60100AA840E /* AppDelegate.swift */,
+				F0F9B56527FCFC5D001C51B9 /* AppDelegate+Nuke.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -246,6 +250,7 @@
 				F0FCAA9727F89A5200EED4B2 /* XMLCoder */,
 				F0A2A04327FC2B4D00C22BB6 /* Differentiator */,
 				F0A2A04527FC2B4D00C22BB6 /* RxDataSources */,
+				F0DF45E427FC996E000EA644 /* Nuke */,
 			);
 			productName = FeedVerse;
 			productReference = F055635827F6F60100AA840E /* FeedVerse.app */;
@@ -281,6 +286,7 @@
 				F0A9390C27F86BDC009675BF /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 				F0FCAA9627F89A5200EED4B2 /* XCRemoteSwiftPackageReference "XMLCoder" */,
 				F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				F0DF45E327FC996E000EA644 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = F055635927F6F60100AA840E /* Products */;
 			projectDirPath = "";
@@ -585,6 +591,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F0DF45E327FC996E000EA644 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		F0FCAA9627F89A5200EED4B2 /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CoreOffice/XMLCoder";
@@ -630,6 +644,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F0B8DEAB27F7D8750031E23E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F0DF45E427FC996E000EA644 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0DF45E327FC996E000EA644 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 		F0FCAA9727F89A5200EED4B2 /* XMLCoder */ = {
 			isa = XCSwiftPackageProductDependency;

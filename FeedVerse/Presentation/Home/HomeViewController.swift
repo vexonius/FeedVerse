@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxDataSources
+import Nuke
 
 class HomeViewController: BaseViewController, HasCustomView {
 
