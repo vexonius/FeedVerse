@@ -1,0 +1,34 @@
+//
+//  Images+Constants.swift
+//  FeedVerse
+//
+//  Created by Tino Emer on 07.04.2022..
+//
+
+import Foundation
+import UIKit
+
+extension UIImage {
+    static let logo = UIImage(named: "logo")
+    static let feedSettings = UIImage(named: "feed-settings")
+}
+
+extension UIColor {
+    static let accent = UIColor(named: "accent-color")
+    static let primaryText = UIColor(named: "color-primary")
+    static let secondaryText = UIColor(named: "color-primary")
+}
+
+extension String {
+    static let tableViewHeader = "Feed"
+    static let error = "Something went wrong... Our ship crashed!"
+    static let emptyPlaceholer = "Nothing to see here"
+    static let loading = "Loading"
+    static let inputHint = "Add RSS source"
+    static let inputPlaceholder = "https://bug.hr/rss..."
+    static let sources = "Sources"
+    static let delete = "Delete"
+    static let add = "Add"
+    static let appName = "FeedVerse"
+
+}
