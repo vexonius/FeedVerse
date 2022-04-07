@@ -13,19 +13,18 @@ class ArticleCell: UITableViewCell {
 
     public static let reuseIdentifier = "ArticleCellID"
 
-    lazy var titleView: UILabel = {
+    private(set) lazy var titleView: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = .systemFont(ofSize: 18, weight: .bold)
         view.numberOfLines = 0
         view.lineBreakMode = .byTruncatingTail
         view.textAlignment = .left
         view.textColor = .black
-        view.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    lazy var descriptionView: UILabel = {
+    private(set) lazy var descriptionView: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 14, weight: .regular)
         view.numberOfLines = 0
@@ -36,11 +35,10 @@ class ArticleCell: UITableViewCell {
         return view
     }()
 
-    lazy var coverView: UIImageView = {
+    private(set) lazy var coverView: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 40
         view.clipsToBounds = true
-        view.image = UIImage(named: "placeholder")
         return view
     }()
 

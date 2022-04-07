@@ -14,7 +14,6 @@ struct Feed {
 }
 
 struct Publication {
-
     let id: String
     let title: String
     let description: String
@@ -42,7 +41,6 @@ extension Publication: Equatable {
 }
 
 struct Article {
-
     let id: String
     let title: String
     let description: String
