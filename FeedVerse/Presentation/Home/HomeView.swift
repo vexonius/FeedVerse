@@ -10,6 +10,14 @@ import UIKit
 
 final class HomeView: UIView {
 
+    private(set) lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        let imageView = UIImageView(image: UIImage.logo)
+        imageView.sizeToFit()
+        refreshControl.addSubview(imageView)
+        return refreshControl
+    }()
+
     private(set) lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +40,7 @@ final class HomeView: UIView {
         super.init(frame: frame)
         setupContainerView()
         setupTableView()
+        setupRefreshControll()
     }
 
     @available(*, unavailable)
@@ -52,6 +61,16 @@ final class HomeView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.left.right.bottom.equalToSuperview()
         }
+    }
+
+    private func setupRefreshControll() {
+        refreshControl.subviews.first?.snp.makeConstraints { make in
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+            make.center.equalToSuperview()
+        }
+
+        articlesTableView.addSubview(refreshControl)
     }
 
 }
