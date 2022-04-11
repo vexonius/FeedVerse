@@ -6,15 +6,14 @@
 //
 
 import Foundation
-import CryptoKit
+import RxDataSources
 
 struct Feed {
     let publication: Publication
     let articles: [Article]
 }
 
-struct Publication: Hashable {
-
+struct Publication {
     let id: String
     let title: String
     let description: String
@@ -28,6 +27,9 @@ struct Publication: Hashable {
         self.link = dto.link
         self.imageUrl = dto.publicationImage?.url
     }
+}
+
+extension Publication: Equatable {
 
     static func == (lhs: Publication, rhs: Publication) -> Bool {
         guard lhs.id == rhs.id else {
@@ -38,12 +40,12 @@ struct Publication: Hashable {
     }
 }
 
-struct Article: Hashable {
-
+struct Article {
     let id: String
     let title: String
     let description: String
     let coverUrl: String?
+    let link: String
     let date: String?
     var categories: [String]
     var savedIn: UserPreference = .none
@@ -53,15 +55,18 @@ struct Article: Hashable {
         self.title = dto.title
         self.description = dto.description
         self.coverUrl = dto.enclosure?.url ?? dto.mediaContent?.url
+        self.link = dto.link
         self.date = dto.date
         self.categories = []
         self.categories.append(contentsOf: dto.categories)
     }
+}
 
-    enum UserPreference: String, Equatable {
-        case favorite
-        case archive
-        case none
+extension Article: IdentifiableType, Equatable {
+    typealias Identity = Int
+
+    var identity: Int {
+        id.hashValue
     }
 
     static func == (lhs: Article, rhs: Article) -> Bool {
@@ -71,5 +76,23 @@ struct Article: Hashable {
 
         return true
     }
+}
 
+enum UserPreference: String, Equatable {
+    case favorite
+    case archive
+    case none
+
+    static func == (lhs: UserPreference, rhs: UserPreference) -> Bool {
+        switch (lhs, rhs) {
+        case (.favorite, .favorite):
+            return true
+        case (.archive, .archive):
+            return true
+        case (.none, .none):
+            return true
+        default:
+            return false
+        }
+    }
 }
