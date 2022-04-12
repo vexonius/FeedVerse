@@ -10,6 +10,9 @@
 		F02EEC8027FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02EEC7F27FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift */; };
 		F02EEC8227FEDFC5004FCF8A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02EEC8127FEDFC5004FCF8A /* HomeViewModel.swift */; };
 		F03F354A2804C8340088A8EE /* RxEnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = F03F35492804C8340088A8EE /* RxEnumKit */; };
+		F03F354C280564A10088A8EE /* FeedRepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03F354B280564A10088A8EE /* FeedRepositoryProvider.swift */; };
+		F03F354F2805659B0088A8EE /* FeedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03F354E2805659B0088A8EE /* FeedRepository.swift */; };
+		F03F355128056AE60088A8EE /* FeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03F355028056AE60088A8EE /* FeedUseCase.swift */; };
 		F055635C27F6F60100AA840E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F055635B27F6F60100AA840E /* AppDelegate.swift */; };
 		F055636027F6F60100AA840E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F055635F27F6F60100AA840E /* HomeViewController.swift */; };
 		F055636527F6F60100AA840E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F055636427F6F60100AA840E /* Assets.xcassets */; };
@@ -42,6 +45,9 @@
 /* Begin PBXFileReference section */
 		F02EEC7F27FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Indentifier.swift"; sourceTree = "<group>"; };
 		F02EEC8127FEDFC5004FCF8A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F03F354B280564A10088A8EE /* FeedRepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedRepositoryProvider.swift; path = FeedVerse/Domain/Interfaces/FeedRepositoryProvider.swift; sourceTree = SOURCE_ROOT; };
+		F03F354E2805659B0088A8EE /* FeedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRepository.swift; sourceTree = "<group>"; };
+		F03F355028056AE60088A8EE /* FeedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUseCase.swift; sourceTree = "<group>"; };
 		F055635827F6F60100AA840E /* FeedVerse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedVerse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F055635B27F6F60100AA840E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F055635F27F6F60100AA840E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F03F354D280564A80088A8EE /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				F03F354B280564A10088A8EE /* FeedRepositoryProvider.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		F055634F27F6F60100AA840E = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +151,7 @@
 			children = (
 				F087D7B527FAE67D008849F5 /* Base */,
 				F0FEF82D27FA28AD00590C5B /* Services */,
+				F03F354E2805659B0088A8EE /* FeedRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -191,6 +206,8 @@
 		F0D4645927FB99740033EB54 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F03F354D280564A80088A8EE /* Interfaces */,
+				F03F355028056AE60088A8EE /* FeedUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -357,6 +374,7 @@
 				F0D3421527FF476D00CDE8B5 /* Constants.swift in Sources */,
 				F0D3421327FF44AB00CDE8B5 /* BindableType.swift in Sources */,
 				F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */,
+				F03F354F2805659B0088A8EE /* FeedRepository.swift in Sources */,
 				F055636027F6F60100AA840E /* HomeViewController.swift in Sources */,
 				F0A9391227F88713009675BF /* FeedDTO.swift in Sources */,
 				F0D3421727FF489E00CDE8B5 /* BaseViewModel.swift in Sources */,
@@ -370,7 +388,9 @@
 				F0D4645E27FBA6FD0033EB54 /* HomeView.swift in Sources */,
 				F02EEC8027FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift in Sources */,
 				F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */,
+				F03F355128056AE60088A8EE /* FeedUseCase.swift in Sources */,
 				F02EEC8227FEDFC5004FCF8A /* HomeViewModel.swift in Sources */,
+				F03F354C280564A10088A8EE /* FeedRepositoryProvider.swift in Sources */,
 				F0A9391027F87F5D009675BF /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

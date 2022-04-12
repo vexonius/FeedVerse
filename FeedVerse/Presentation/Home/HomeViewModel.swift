@@ -30,14 +30,15 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
 
     private(set) var state: BehaviorRelay<State> = BehaviorRelay(value: .loading)
 
-    private let feedService: FeedServiceProvider = FeedService()
+    private let feedUseCase: FeedUseCaseProvider
 
-    override init() {
+    init(feedUseCase: FeedUseCaseProvider) {
 
+        self.feedUseCase = feedUseCase
         state.accept(.loading)
         super.init()
 
-        feedService.fetchRSSFeed(url: "https://bug.hr/rss")
+        feedUseCase.getFeed()
             .debug()
             .subscribe(
                 onSuccess: { [weak self] rss in

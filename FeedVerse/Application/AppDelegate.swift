@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let viewController = HomeViewController()
-        viewController.viewModel = HomeViewModel()
+        let feedService: FeedServiceProvider = FeedService()
+        let feedRepository: FeedRepositoryProvider = FeedRepository(feedService: feedService)
+        let useCase: FeedUseCaseProvider = FeedUsecase(feedRepository: feedRepository)
+        
+        viewController.viewModel = HomeViewModel(feedUseCase: useCase)
         let navigationController = UINavigationController(rootViewController: viewController)
 
         self.window = UIWindow(frame: UIScreen.main.bounds)

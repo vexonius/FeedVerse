@@ -39,9 +39,7 @@ class HomeViewController: BaseViewController, HasCustomView {
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.largeTitleDisplayMode = .never
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.feedSettings, style: .done, target: nil, action: nil)
-
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
 
