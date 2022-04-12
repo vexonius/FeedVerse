@@ -7,14 +7,25 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 final class HomeView: UIView {
 
     private(set) lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        let imageView = UIImageView(image: UIImage.logo)
+        refreshControl.tintColor = .clear
+
+        let imageView = UIImageView(image: UIImage.flyingRocket)
         imageView.sizeToFit()
         refreshControl.addSubview(imageView)
+
+        imageView.snp.makeConstraints { make in
+            make.width.equalTo(50)
+            make.height.equalTo(70)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(8)
+        }
+
         return refreshControl
     }()
 
@@ -31,7 +42,6 @@ final class HomeView: UIView {
         tableView.separatorStyle = .none
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .clear
         tableView.contentInset.bottom = 20
         return tableView
     }()
@@ -64,13 +74,7 @@ final class HomeView: UIView {
     }
 
     private func setupRefreshControll() {
-        refreshControl.subviews.first?.snp.makeConstraints { make in
-            make.width.equalTo(50)
-            make.height.equalTo(50)
-            make.center.equalToSuperview()
-        }
-
-        articlesTableView.addSubview(refreshControl)
+        articlesTableView.refreshControl = refreshControl
     }
 
 }

@@ -11,6 +11,7 @@ import UIKit
 extension UIImage {
     static let logo = UIImage(named: "logo")
     static let feedSettings = UIImage(named: "feed-settings")
+    static let flyingRocket = UIImage(named: "rocket-flying")
 }
 
 extension UIColor {
