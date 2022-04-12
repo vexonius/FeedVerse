@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F02EEC8027FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02EEC7F27FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift */; };
+		F02EEC8227FEDFC5004FCF8A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02EEC8127FEDFC5004FCF8A /* HomeViewModel.swift */; };
+		F03F354A2804C8340088A8EE /* RxEnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = F03F35492804C8340088A8EE /* RxEnumKit */; };
 		F055635C27F6F60100AA840E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F055635B27F6F60100AA840E /* AppDelegate.swift */; };
 		F055636027F6F60100AA840E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F055635F27F6F60100AA840E /* HomeViewController.swift */; };
 		F055636527F6F60100AA840E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F055636427F6F60100AA840E /* Assets.xcassets */; };
@@ -39,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		F02EEC7F27FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Indentifier.swift"; sourceTree = "<group>"; };
+		F02EEC8127FEDFC5004FCF8A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F055635827F6F60100AA840E /* FeedVerse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedVerse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F055635B27F6F60100AA840E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F055635F27F6F60100AA840E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 			files = (
 				F0DF45E527FC996E000EA644 /* Nuke in Frameworks */,
 				F0A2A04427FC2B4D00C22BB6 /* Differentiator in Frameworks */,
+				F03F354A2804C8340088A8EE /* RxEnumKit in Frameworks */,
 				F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */,
 				F0B8DEAA27F7D8360031E23E /* RxSwift in Frameworks */,
 				F0B8DEAD27F7D8750031E23E /* SnapKit in Frameworks */,
@@ -161,6 +165,7 @@
 				F0DF45E227FC6031000EA644 /* ArticleTableView */,
 				F055635F27F6F60100AA840E /* HomeViewController.swift */,
 				F0D4645D27FBA6FD0033EB54 /* HomeView.swift */,
+				F02EEC8127FEDFC5004FCF8A /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				F0A2A04327FC2B4D00C22BB6 /* Differentiator */,
 				F0A2A04527FC2B4D00C22BB6 /* RxDataSources */,
 				F0DF45E427FC996E000EA644 /* Nuke */,
+				F03F35492804C8340088A8EE /* RxEnumKit */,
 			);
 			productName = FeedVerse;
 			productReference = F055635827F6F60100AA840E /* FeedVerse.app */;
@@ -299,6 +305,7 @@
 				F0FCAA9627F89A5200EED4B2 /* XCRemoteSwiftPackageReference "XMLCoder" */,
 				F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				F0DF45E327FC996E000EA644 /* XCRemoteSwiftPackageReference "Nuke" */,
+				F03F35482804C8340088A8EE /* XCRemoteSwiftPackageReference "RxEnumKit" */,
 			);
 			productRefGroup = F055635927F6F60100AA840E /* Products */;
 			projectDirPath = "";
@@ -363,6 +370,7 @@
 				F0D4645E27FBA6FD0033EB54 /* HomeView.swift in Sources */,
 				F02EEC8027FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift in Sources */,
 				F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */,
+				F02EEC8227FEDFC5004FCF8A /* HomeViewModel.swift in Sources */,
 				F0A9391027F87F5D009675BF /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +583,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F03F35482804C8340088A8EE /* XCRemoteSwiftPackageReference "RxEnumKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gringoireDM/RxEnumKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
@@ -626,6 +642,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F03F35492804C8340088A8EE /* RxEnumKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F03F35482804C8340088A8EE /* XCRemoteSwiftPackageReference "RxEnumKit" */;
+			productName = RxEnumKit;
+		};
 		F0A2A04327FC2B4D00C22BB6 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F0A2A04227FC2B4D00C22BB6 /* XCRemoteSwiftPackageReference "RxDataSources" */;

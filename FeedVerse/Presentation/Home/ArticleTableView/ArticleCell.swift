@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Nuke
 
 class ArticleCell: UITableViewCell {
 
@@ -93,6 +94,25 @@ class ArticleCell: UITableViewCell {
             make.height.greaterThanOrEqualTo(20)
             make.height.lessThanOrEqualTo(60)
         }
+    }
+
+}
+
+extension ArticleCell {
+
+    func bind(article: Article) {
+        self.titleView.text = article.title
+        self.descriptionView.text = article.description
+
+        if let imagePath = article.coverUrl, let url = URL(string: imagePath) {
+            Nuke.loadImage(with: url, into: self.coverView)
+        } else {
+            coverView.snp.remakeConstraints { make in
+                make.size.equalTo(0)
+                make.right.equalToSuperview()
+            }
+        }
+
     }
 
 }
