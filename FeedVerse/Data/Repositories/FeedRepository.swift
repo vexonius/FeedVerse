@@ -13,7 +13,7 @@ final class FeedRepository: FeedRepositoryProvider {
     private let feedService: FeedServiceProvider
     private let databaseClient: DatabaseClientProvider
 
-    init(feedService: FeedServiceProvider, databaseClient: DatabaseClient) {
+    init(feedService: FeedServiceProvider, databaseClient: DatabaseClientProvider) {
         self.feedService = feedService
         self.databaseClient = databaseClient
     }

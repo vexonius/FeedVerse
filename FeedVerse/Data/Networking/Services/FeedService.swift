@@ -16,7 +16,11 @@ protocol FeedServiceProvider {
 
 final class FeedService: FeedServiceProvider {
 
-    let client: NetworkClientProvider = NetworkClient.shared
+    let client: NetworkClientProvider
+
+    init(client: NetworkClientProvider) {
+        self.client = client
+    }
 
     func fetchRSSFeed(url: String) -> Single<Feed> {
         client.get(path: url, params: [:], headers: [:], encoding: .default, responseType: FeedDTO.self)
