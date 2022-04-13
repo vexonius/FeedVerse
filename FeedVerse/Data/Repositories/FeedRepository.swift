@@ -26,8 +26,16 @@ final class FeedRepository: FeedRepositoryProvider {
         databaseClient.observeModels(type: T.self)
     }
 
-    func saveFeed(feed: Feed) -> Completable {
-        databaseClient.saveAll(models: feed.articles)
+    func persistAll<T: DBModel>(models: [T]) -> Completable {
+        databaseClient.saveAll(models: models)
+    }
+
+    func persist<T: DBModel>(model: T) -> Completable {
+        databaseClient.save(model: model)
+    }
+
+    func delete<T: DBModel>(model: T) -> Completable {
+        databaseClient.delete(model: model)
     }
 
 }

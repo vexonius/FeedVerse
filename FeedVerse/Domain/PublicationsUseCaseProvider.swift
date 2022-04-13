@@ -11,6 +11,8 @@ import RxSwift
 protocol PublicationsUseCaseProvider {
     func getFeed(for publication: String) -> Observable<Feed>
     func loadPublicationsFromPersistentStorage() -> Observable<[Publication]>
+    func savePublication(publication: Publication) -> Completable
+    func deletePublication(publication: Publication) -> Completable
 }
 
 final class PublicationsUseCase: PublicationsUseCaseProvider {
@@ -28,6 +30,14 @@ final class PublicationsUseCase: PublicationsUseCaseProvider {
 
     func loadPublicationsFromPersistentStorage() -> Observable<[Publication]> {
         feedRepository.loadFromPersistentStorage(type: Publication.self)
+    }
+
+    func savePublication(publication: Publication) -> Completable {
+        feedRepository.persist(model: publication)
+    }
+
+    func deletePublication(publication: Publication) -> Completable {
+        feedRepository.delete(model: publication)
     }
 
 }

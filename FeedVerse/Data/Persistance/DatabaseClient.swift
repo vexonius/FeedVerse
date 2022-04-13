@@ -32,17 +32,22 @@ final class DatabaseClient {
 
         migrator.registerMigration("createPublication") { db in
             try db.create(table: "publication") { t in
-                t.column("id", .text).primaryKey(onConflict: .replace, autoincrement: false).notNull(onConflict: .replace)
+                t.column("id", .text)
+                    .primaryKey(onConflict: .replace, autoincrement: false)
+                    .notNull(onConflict: .replace)
                 t.column("title", .text).notNull()
                 t.column("description", .text).notNull()
                 t.column("link", .text).notNull()
                 t.column("imageUrl", .text)
+                t.column("rssLink", .text).notNull()
             }
         }
 
         migrator.registerMigration("createArticle") { db in
             try db.create(table: "article") { t in
-                t.column("id", .text).primaryKey(onConflict: .replace, autoincrement: false).notNull(onConflict: .replace)
+                t.column("id", .text)
+                    .primaryKey(onConflict: .replace, autoincrement: false)
+                    .notNull(onConflict: .replace)
                 // t.column("publicationId", .text).notNull().indexed().references("publication", onDelete: .cascade)
                 t.column("title", .text).notNull()
                 t.column("description", .text).notNull()

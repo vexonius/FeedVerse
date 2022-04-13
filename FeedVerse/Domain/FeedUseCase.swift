@@ -34,7 +34,7 @@ final class ArticlesUseCase: ArticlesUseCaseProvider {
             .flatMap { event -> Observable<Never> in
                 guard let element = event.element else { return .never() }
 
-                return self.feedRepository.saveFeed(feed: element).andThen(.never())
+                return self.feedRepository.persistAll(models: element.articles).andThen(.never())
             }
     }
 
