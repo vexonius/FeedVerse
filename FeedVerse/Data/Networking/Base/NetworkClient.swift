@@ -22,6 +22,10 @@ protocol ResponseDecoder {
 
 final class NetworkClient {
 
+    static let shared = NetworkClient()
+
+    private init() {}
+
     private func decode<T: Decodable>(data: Data, decoder: ResponseDecoder) throws -> T {
         try decoder.decode(data)
     }

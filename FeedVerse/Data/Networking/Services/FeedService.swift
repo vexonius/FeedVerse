@@ -16,7 +16,7 @@ protocol FeedServiceProvider {
 
 final class FeedService: FeedServiceProvider {
 
-    let client: NetworkClientProvider = NetworkClient()
+    let client: NetworkClientProvider = NetworkClient.shared
 
     func fetchRSSFeed(url: String) -> Single<Feed> {
         client.get(path: url, params: [:], headers: [:], encoding: .default, responseType: FeedDTO.self)
@@ -35,7 +35,7 @@ final class FeedService: FeedServiceProvider {
     private func flattenFeedDTO(from feedDTO: FeedDTO) -> Feed {
         Feed(
             publication: Publication(from: feedDTO.publication),
-             articles: feedDTO.publication.articles.map { Article(from: $0) }
+            articles: feedDTO.publication.articles.map { Article(from: $0) }
         )
     }
 
