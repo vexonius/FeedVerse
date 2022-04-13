@@ -14,10 +14,10 @@ class PublicationCell: UITableViewCell {
 
     public static let reuseIdentifier = "PublicationCellID"
 
-    private(set) lazy var name: UILabel = {
+    private(set) lazy var publicationName: UILabel = {
         let view = UILabel(frame: .zero)
-        view.font = .systemFont(ofSize: 18, weight: .bold)
-        view.numberOfLines = 0
+        view.font = .systemFont(ofSize: 16, weight: .bold)
+        view.numberOfLines = 1
         view.lineBreakMode = .byTruncatingTail
         view.textAlignment = .left
         view.textColor = .black
@@ -27,8 +27,8 @@ class PublicationCell: UITableViewCell {
 
     private(set) lazy var thumbNailView: UIImageView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 40
         view.clipsToBounds = true
+        view.sizeToFit()
         return view
     }()
 
@@ -49,13 +49,15 @@ class PublicationCell: UITableViewCell {
     }
 
     private func setupTitle() {
-        contentView.addSubview(name)
+        contentView.addSubview(publicationName)
 
-        name.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview().offset(16)
-            make.right.equalTo(thumbNailView.snp.left).offset(-16)
-            make.height.greaterThanOrEqualTo(20)
-            make.height.lessThanOrEqualTo(68)
+        publicationName.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.equalTo(layoutMarginsGuide.snp.left)
+            make.right.equalTo(thumbNailView.snp.left)
+            make.height.greaterThanOrEqualTo(60)
+            make.height.lessThanOrEqualTo(80)
+            make.centerY.equalToSuperview()
         }
     }
 
@@ -65,18 +67,21 @@ class PublicationCell: UITableViewCell {
         thumbNailView.snp.makeConstraints { make in
             make.size.equalTo(40)
             make.centerY.equalToSuperview()
-            make.rightMargin.equalToSuperview()
+            make.right.equalTo(layoutMarginsGuide.snp.right)
         }
+
+        thumbNailView.layer.cornerRadius = 20
+
     }
 }
 
 extension PublicationCell {
 
     func bind(publication: Publication) {
-        self.name.text = publication.title
+        self.publicationName.text = publication.title
 
         if let imagePath = publication.imageUrl, let url = URL(string: imagePath) {
-            Nuke.loadImage(with: url, into: self.thumbNailView)
+            Nuke.loadImage(with: url, options: Nuke.ImageLoadingOptions.shared, into: self.thumbNailView)
         } else {
             self.thumbNailView.image = UIImage.placeHolder
         }
