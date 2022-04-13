@@ -10,6 +10,7 @@ import UIKit
 
 protocol AppDIContainerProvider {
     func createHomeViewController(coordinator: AppCoordinatorProvider) -> UIViewController
+    func createPublicationsViewController(coordinator: AppCoordinatorProvider) -> UIViewController
 }
 
 final class AppDIContainer {
@@ -36,6 +37,16 @@ extension AppDIContainer: AppDIContainerProvider {
 
         let viewController = HomeViewController()
         viewController.viewModel = homeViewModel
+
+        return viewController
+    }
+
+    func createPublicationsViewController(coordinator: AppCoordinatorProvider) -> UIViewController {
+        let publicationUseCase: PublicationsUseCaseProvider = createPublicationsUseCase()
+        let publicationsViewModel: PublicationsViewModel = PublicationsViewModel(publicationsUseCase: publicationUseCase, coordinator: coordinator)
+
+        let viewController = PublicationsViewController()
+        viewController.viewModel = publicationsViewModel
 
         return viewController
     }

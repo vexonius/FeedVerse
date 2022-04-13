@@ -79,6 +79,10 @@ extension HomeViewController: BindableType {
             .bind(to: viewModel.input.selectedItem)
             .disposed(by: disposeBag)
 
+        navigationItem.rightBarButtonItem?.rx.tap
+            .bind(to: viewModel.input.publicationRouteTrigger)
+            .disposed(by: disposeBag)
+
     }
 
 }

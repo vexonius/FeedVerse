@@ -14,6 +14,7 @@ protocol AppCoordinatorProvider {
 
     func begin()
     func openExternalLink(link: String)
+    func routeToPublications()
 }
 
 final class AppCoordinator: AppCoordinatorProvider {
@@ -35,6 +36,11 @@ final class AppCoordinator: AppCoordinatorProvider {
         guard let url = URL(string: link) else { return }
         let safariViewController = SFSafariViewController(url: url)
         navigationController.present(safariViewController, animated: true)
+    }
+
+    func routeToPublications() {
+        let publicationsViewController: UIViewController = DIContainer.createPublicationsViewController(coordinator: self)
+        navigationController.present(UINavigationController(rootViewController: publicationsViewController), animated: true)
     }
 
 }
