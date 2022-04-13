@@ -107,10 +107,7 @@ extension ArticleCell {
         if let imagePath = article.coverUrl, let url = URL(string: imagePath) {
             Nuke.loadImage(with: url, into: self.coverView)
         } else {
-            coverView.snp.remakeConstraints { make in
-                make.size.equalTo(0)
-                make.right.equalToSuperview()
-            }
+            self.coverView.image = UIImage.placeHolder
         }
 
     }
