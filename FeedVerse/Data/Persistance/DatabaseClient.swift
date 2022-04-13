@@ -48,7 +48,7 @@ final class DatabaseClient {
                 t.column("id", .text)
                     .primaryKey(onConflict: .replace, autoincrement: false)
                     .notNull(onConflict: .replace)
-                // t.column("publicationId", .text).notNull().indexed().references("publication", onDelete: .cascade)
+                t.column("publicationId", .text).notNull().references("publication", onDelete: .cascade)
                 t.column("title", .text).notNull()
                 t.column("description", .text).notNull()
                 t.column("link", .text).notNull()
