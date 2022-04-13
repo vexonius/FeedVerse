@@ -19,7 +19,6 @@ final class ArticlesUseCase: ArticlesUseCaseProvider {
     private let feedRepository: FeedRepositoryProvider
     private(set) var errorDispatcher: PublishSubject<Error>
 
-
     init(feedRepository: FeedRepositoryProvider) {
         self.feedRepository = feedRepository
         errorDispatcher = PublishSubject()
@@ -31,13 +30,12 @@ final class ArticlesUseCase: ArticlesUseCaseProvider {
             .flatMap { owner, url -> Observable<Feed> in
                 owner.feedRepository.fetchRSSFeed(url: url).asObservable()
             }
-            .flatMap { [weak self] (feed: Feed) -> Observable<Never> in
-                guard let self = self else { return .error(DatabaseError.writeError) }
+            .materialize()
+            .flatMap { event -> Observable<Never> in
+                guard let element = event.element else { return .never() }
 
-                return self.feedRepository.saveFeed(feed: feed)
-                    .asObservable()
+                return self.feedRepository.saveFeed(feed: element).andThen(.never())
             }
-
     }
 
     func loadFromPersistentStorage() -> Observable<[Article]> {

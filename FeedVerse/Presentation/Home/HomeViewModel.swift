@@ -10,12 +10,18 @@ import RxRelay
 import RxSwift
 import EnumKit
 import RxCocoa
+import UIKit
 
 protocol HomeViewModelInput {
+    var refreshTrigger: PublishSubject<Void> { get }
 }
 
 protocol HomeViewModelOutput {
     var state: BehaviorRelay<HomeViewModel.State> { get }
+}
+
+extension HomeViewModel {
+    var input: HomeViewModelInput { self }
 }
 
 class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
@@ -29,26 +35,40 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
     }
 
     private(set) var state: BehaviorRelay<State> = BehaviorRelay(value: .loading)
+    private(set) var refreshTrigger: PublishSubject<Void>
 
-    private let feedUseCase: FeedUseCaseProvider
+    private let articlesUseCase: ArticlesUseCaseProvider
+    private let publicationsUseCase: PublicationsUseCaseProvider
+    private let scheduler = ConcurrentDispatchQueueScheduler(queue: .global(qos: .default))
 
-    init(feedUseCase: FeedUseCaseProvider) {
+    init(articlesUseCase: ArticlesUseCaseProvider, publicationsUseCase: PublicationsUseCase) {
+        self.articlesUseCase = articlesUseCase
+        self.publicationsUseCase = publicationsUseCase
 
-        self.feedUseCase = feedUseCase
         state.accept(.loading)
+        self.refreshTrigger = PublishSubject()
+
         super.init()
 
-        feedUseCase.getFeed()
-            .debug()
-            .subscribe(
-                onSuccess: { [weak self] rss in
-                    self?.state.accept(.loaded(feed: rss.articles))
-                },
-                onFailure: { [weak self] error in
-                    self?.state.accept(.error)
-                }
-            )
+        articlesUseCase.loadFromPersistentStorage()
+            .observe(on: scheduler)
+            .subscribe(onNext: { articles in
+                self.state.accept(.loaded(feed: articles))
+            })
             .disposed(by: disposeBag)
+
+        publicationsUseCase.loadPublicationsFromPersistentStorage()
+            .observe(on: scheduler)
+            .subscribe(onNext: { publications in
+                debugPrint(publications)
+            })
+            .disposed(by: disposeBag)
+
+        refreshTrigger.subscribe(onNext: {
+            self.state.accept(.refreshing)
+        })
+        .disposed(by: disposeBag)
+
     }
 
 }

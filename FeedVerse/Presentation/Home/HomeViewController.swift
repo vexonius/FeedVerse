@@ -54,7 +54,7 @@ extension HomeViewController: BindableType {
 
     func bindViewModel() {
 
-        viewModel.state.asDriver()
+        viewModel.state.asDriver(onErrorJustReturn: .loading)
             .map(case: HomeViewModel.State.loaded, [Article].init)
             .map { [ArticleSection(header: String.tableViewHeader, articles: $0)] }
             .drive(mainView.articlesTableView.rx.items(dataSource: datasource))
@@ -65,8 +65,14 @@ extension HomeViewController: BindableType {
             .disposed(by: disposeBag)
 
         viewModel.state
-            .map { $0.isNotMatching(case: .loading) ? false : true }
+            .map { $0.isNotMatching(case: .refreshing) ? false : true }
             .bind(to: mainView.refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+
+        mainView.articlesTableView.refreshControl?.rx
+            .controlEvent(.valueChanged)
+            .map { _ in }
+            .bind(to: viewModel.input.refreshTrigger)
             .disposed(by: disposeBag)
 
     }

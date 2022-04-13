@@ -28,7 +28,6 @@ final class FeedRepository: FeedRepositoryProvider {
 
     func saveFeed(feed: Feed) -> Completable {
         databaseClient.saveAll(models: feed.articles)
-
     }
 
 }
