@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F028C51428060F07003D8947 /* DatabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028C51328060F07003D8947 /* DatabaseClient.swift */; };
 		F028C51A28062336003D8947 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = F028C51928062336003D8947 /* GRDB */; };
 		F028C51C280635E9003D8947 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028C51B280635E9003D8947 /* Article.swift */; };
 		F028C51E280635FA003D8947 /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028C51D280635FA003D8947 /* Publication.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F028C51328060F07003D8947 /* DatabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClient.swift; sourceTree = "<group>"; };
 		F028C51B280635E9003D8947 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F028C51D280635FA003D8947 /* Publication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publication.swift; sourceTree = "<group>"; };
 		F02EEC7F27FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Indentifier.swift"; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F028C52028065802003D8947 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				F028C51328060F07003D8947 /* DatabaseClient.swift */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
 		F03F354D280564A80088A8EE /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +404,7 @@
 				F03F354F2805659B0088A8EE /* FeedRepository.swift in Sources */,
 				F055636027F6F60100AA840E /* HomeViewController.swift in Sources */,
 				F028C51E280635FA003D8947 /* Publication.swift in Sources */,
+				F028C51428060F07003D8947 /* DatabaseClient.swift in Sources */,
 				F0A9391227F88713009675BF /* FeedDTO.swift in Sources */,
 				F0D3421727FF489E00CDE8B5 /* BaseViewModel.swift in Sources */,
 				F0D4645727FB353D0033EB54 /* Feed.swift in Sources */,
