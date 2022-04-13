@@ -65,6 +65,7 @@ class PublicationsView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         setupContainerView()
         setupHintLabel()
         setupAddButton()

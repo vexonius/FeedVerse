@@ -31,11 +31,6 @@ class HomeViewController: BaseViewController, HasCustomView {
         bindViewModel()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-    }
-
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.largeTitleDisplayMode = .never
@@ -82,7 +77,6 @@ extension HomeViewController: BindableType {
         navigationItem.rightBarButtonItem?.rx.tap
             .bind(to: viewModel.input.publicationRouteTrigger)
             .disposed(by: disposeBag)
-
     }
 
 }

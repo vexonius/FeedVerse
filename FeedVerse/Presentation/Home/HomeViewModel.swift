@@ -71,7 +71,7 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
             .distinctUntilChanged()
             .withUnretained(self)
             .flatMap({ owner, publications in
-                owner.articlesUseCase.getFeed(for: publications.map { $0.rssLink! }).asObservable()
+                owner.articlesUseCase.getFeed(for: publications.map { $0.rssLink }).asObservable()
             })
             .subscribe()
             .disposed(by: disposeBag)
@@ -80,7 +80,7 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
             .withLatestFrom(publicationsUseCase.loadPublicationsFromPersistentStorage())
             .withUnretained(self)
             .flatMap { owner, publications -> Observable<Never> in
-                owner.articlesUseCase.getFeed(for: publications.map { $0.rssLink! })
+                owner.articlesUseCase.getFeed(for: publications.map { $0.rssLink })
             }
             .subscribe(onNext: { [weak self] _ in
                 self?.state.accept(.refreshing)

@@ -36,8 +36,6 @@ final class NetworkClient {
             return .clientError
         case 500..<600:
             return .serverError
-        case -1009:
-            return .noConnection
         default:
             return .generic
         }

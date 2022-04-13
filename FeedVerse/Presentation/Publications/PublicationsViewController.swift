@@ -32,7 +32,7 @@ class PublicationsViewController: BaseViewController, HasCustomView {
     }
 
     private func setupNavigationBar() {
-        self.navigationItem.title = String.sources
+        navigationItem.title = String.sources
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.edit, style: .done, target: nil, action: nil)
@@ -50,7 +50,6 @@ extension PublicationsViewController: BindableType {
 
     func bindViewModel() {
         viewModel.output.items
-            .debug()
             .map { [PublicationSection(header: "", publications: $0)] }
             .bind(to: mainView.publicationsTableView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
@@ -66,10 +65,8 @@ extension PublicationsViewController: BindableType {
         // Work in progress
         mainView.addButton.rx.tap
             .withLatestFrom(mainView.addSourceTextField.rx.text.orEmpty.asObservable())
-            .debug()
             .bind(to: viewModel.input.addNew)
             .disposed(by: disposeBag)
-
     }
 
 }

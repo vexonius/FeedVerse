@@ -52,7 +52,6 @@
 		F0DF45E527FC996E000EA644 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F0DF45E427FC996E000EA644 /* Nuke */; };
 		F0F9B56627FCFC5D001C51B9 /* AppDelegate+Nuke.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9B56527FCFC5D001C51B9 /* AppDelegate+Nuke.swift */; };
 		F0FCAA9827F89A5200EED4B2 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = F0FCAA9727F89A5200EED4B2 /* XMLCoder */; };
-		F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,7 +90,6 @@
 		F0D4646227FBB46E0033EB54 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F0DF45E027FC5B13000EA644 /* ArticleSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSectionModel.swift; sourceTree = "<group>"; };
 		F0F9B56527FCFC5D001C51B9 /* AppDelegate+Nuke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Nuke.swift"; sourceTree = "<group>"; };
-		F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				F0A9390F27F87F5D009675BF /* FeedService.swift */,
-				F0FEF82E27FA28CE00590C5B /* FeedServiceMock.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -450,7 +447,6 @@
 				F07F883B28074159008C5B6E /* PublicationsViewModel.swift in Sources */,
 				F028C5252806FCB0003D8947 /* PublicationsUseCaseProvider.swift in Sources */,
 				F028C51C280635E9003D8947 /* Article.swift in Sources */,
-				F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */,
 				F03F354F2805659B0088A8EE /* FeedRepository.swift in Sources */,
 				F055636027F6F60100AA840E /* HomeViewController.swift in Sources */,
 				F07F8833280723EC008C5B6E /* AppDIContainer.swift in Sources */,

@@ -23,9 +23,9 @@ final class AppCoordinator: AppCoordinatorProvider {
     private let DIContainer: AppDIContainer
 
     init(navigationController: UINavigationController, DIContainer: AppDIContainer) {
-          self.navigationController = navigationController
+        self.navigationController = navigationController
         self.DIContainer = DIContainer
-      }
+    }
 
     func begin() {
         let homeViewController: UIViewController = DIContainer.createHomeViewController(coordinator: self)

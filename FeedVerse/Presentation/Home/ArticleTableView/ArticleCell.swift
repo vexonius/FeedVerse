@@ -62,7 +62,6 @@ class ArticleCell: UITableViewCell {
 
     private func setupTitle() {
         contentView.addSubview(titleView)
-
         titleView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.left.equalToSuperview().inset(18)
@@ -74,7 +73,6 @@ class ArticleCell: UITableViewCell {
 
     private func setupCover() {
         contentView.addSubview(coverView)
-
         coverView.snp.makeConstraints { make in
             make.size.equalTo(80)
             make.centerY.equalToSuperview()
@@ -85,7 +83,6 @@ class ArticleCell: UITableViewCell {
 
     private func setupDescription() {
         contentView.addSubview(descriptionView)
-
         descriptionView.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(18)
             make.top.equalTo(titleView.snp.bottom).offset(4)

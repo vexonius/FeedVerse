@@ -10,7 +10,7 @@ import RxSwift
 
 protocol ArticlesUseCaseProvider {
     var errorDispatcher: PublishSubject<Error> { get }
-    func getFeed(for sources: [String]) -> Observable<Never>
+    func getFeed(for sources: [String?]) -> Observable<Never>
     func loadFromPersistentStorage() -> Observable<[Article]>
 }
 
@@ -24,11 +24,13 @@ final class ArticlesUseCase: ArticlesUseCaseProvider {
         errorDispatcher = PublishSubject()
     }
 
-    func getFeed(for sources: [String]) -> Observable<Never> {
+    func getFeed(for sources: [String?]) -> Observable<Never> {
         Observable.from(sources)
             .withUnretained(self)
             .flatMap { owner, url -> Observable<Feed> in
-                owner.feedRepository.fetchRSSFeed(url: url).asObservable()
+                guard let url = url else { return .never() }
+
+                return owner.feedRepository.fetchRSSFeed(url: url).asObservable()
             }
             .materialize()
             .flatMap { event -> Observable<Never> in

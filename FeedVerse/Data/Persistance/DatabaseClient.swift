@@ -83,7 +83,7 @@ extension DatabaseClient: DatabaseClientProvider {
             debugPrint(error)
             return .error(DatabaseError.writeError)
         })
-        .asObservable()
+            .asObservable()
     }
 
     func observeModels<T: DBModel>(type _: T.Type) -> Observable<[T]> {
@@ -102,7 +102,7 @@ extension DatabaseClient: DatabaseClientProvider {
             debugPrint(error)
             return .error(DatabaseError.writeError)
         })
-        .asCompletable()
+            .asCompletable()
     }
 
     func saveAll<T: DBModel>(models: [T]) -> Completable {
@@ -115,7 +115,7 @@ extension DatabaseClient: DatabaseClientProvider {
             debugPrint(error)
             return .error(DatabaseError.writeError)
         })
-        .asCompletable()
+            .asCompletable()
     }
 
     func delete<T: DBModel>(model: T) -> Completable {
@@ -126,7 +126,7 @@ extension DatabaseClient: DatabaseClientProvider {
             debugPrint(error)
             return .error(DatabaseError.writeError)
         })
-        .asCompletable()
+            .asCompletable()
     }
 
 }
