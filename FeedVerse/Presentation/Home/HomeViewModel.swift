@@ -39,11 +39,14 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
 
     private let articlesUseCase: ArticlesUseCaseProvider
     private let publicationsUseCase: PublicationsUseCaseProvider
+    private let coordinator: AppCoordinatorProvider
     private let scheduler = ConcurrentDispatchQueueScheduler(queue: .global(qos: .default))
 
     init(articlesUseCase: ArticlesUseCaseProvider, publicationsUseCase: PublicationsUseCase) {
+    init(articlesUseCase: ArticlesUseCaseProvider, publicationsUseCase: PublicationsUseCaseProvider, coordinator: AppCoordinatorProvider) {
         self.articlesUseCase = articlesUseCase
         self.publicationsUseCase = publicationsUseCase
+        self.coordinator = coordinator
 
         state.accept(.loading)
         self.refreshTrigger = PublishSubject()

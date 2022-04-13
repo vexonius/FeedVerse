@@ -11,20 +11,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var appCoordinator: AppCoordinatorProvider?
+    let appDIContainer = AppDIContainer()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let viewController = HomeViewController()
-        let feedService: FeedServiceProvider = FeedService()
-        let feedRepository: FeedRepositoryProvider = FeedRepository(feedService: feedService)
-        let useCase: FeedUseCaseProvider = FeedUsecase(feedRepository: feedRepository)
-        
-        viewController.viewModel = HomeViewModel(feedUseCase: useCase)
-        let navigationController = UINavigationController(rootViewController: viewController)
-
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController()
         window?.rootViewController = navigationController
+
+        appCoordinator = AppCoordinator(navigationController: navigationController, DIContainer: appDIContainer)
+        appCoordinator?.begin()
+
         window?.makeKeyAndVisible()
 
         setupImageLoadingOptions()
