@@ -13,12 +13,14 @@ extension UIImage {
     static let feedSettings = UIImage(named: "feed-settings")
     static let flyingRocket = UIImage(named: "rocket-flying")
     static let placeHolder = UIImage(named: "placeholder")
+    static let edit = UIImage(named: "pen")
 }
 
 extension UIColor {
     static let accent = UIColor(named: "accent-color")
-    static let primaryText = UIColor(named: "color-primary")
-    static let secondaryText = UIColor(named: "color-primary")
+    static let primaryText = UIColor(named: "primaryText")
+    static let secondaryText = UIColor(named: "secondaryText")
+    static let lightBackground = UIColor(named: "light-grey")
 }
 
 extension String {
