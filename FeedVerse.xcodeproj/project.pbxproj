@@ -12,6 +12,7 @@
 		F028C51C280635E9003D8947 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028C51B280635E9003D8947 /* Article.swift */; };
 		F028C51E280635FA003D8947 /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028C51D280635FA003D8947 /* Publication.swift */; };
 		F028C5232806BCC1003D8947 /* RxGRDB in Frameworks */ = {isa = PBXBuildFile; productRef = F028C5222806BCC1003D8947 /* RxGRDB */; };
+		F028C5252806FCB0003D8947 /* PublicationsUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028C5242806FCB0003D8947 /* PublicationsUseCaseProvider.swift */; };
 		F02EEC8027FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02EEC7F27FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift */; };
 		F02EEC8227FEDFC5004FCF8A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02EEC8127FEDFC5004FCF8A /* HomeViewModel.swift */; };
 		F03F354A2804C8340088A8EE /* RxEnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = F03F35492804C8340088A8EE /* RxEnumKit */; };
@@ -51,6 +52,7 @@
 		F028C51328060F07003D8947 /* DatabaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClient.swift; sourceTree = "<group>"; };
 		F028C51B280635E9003D8947 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F028C51D280635FA003D8947 /* Publication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publication.swift; sourceTree = "<group>"; };
+		F028C5242806FCB0003D8947 /* PublicationsUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsUseCaseProvider.swift; sourceTree = "<group>"; };
 		F02EEC7F27FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Indentifier.swift"; sourceTree = "<group>"; };
 		F02EEC8127FEDFC5004FCF8A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F03F354B280564A10088A8EE /* FeedRepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedRepositoryProvider.swift; path = FeedVerse/Domain/Interfaces/FeedRepositoryProvider.swift; sourceTree = SOURCE_ROOT; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F028C51F280657EA003D8947 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F03F354E2805659B0088A8EE /* FeedRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		F028C52028065802003D8947 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +179,6 @@
 			children = (
 				F087D7B527FAE67D008849F5 /* Base */,
 				F0FEF82D27FA28AD00590C5B /* Services */,
-				F03F354E2805659B0088A8EE /* FeedRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 			children = (
 				F03F354D280564A80088A8EE /* Interfaces */,
 				F03F355028056AE60088A8EE /* FeedUseCase.swift */,
+				F028C5242806FCB0003D8947 /* PublicationsUseCaseProvider.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -399,6 +409,7 @@
 			files = (
 				F0D3421527FF476D00CDE8B5 /* Constants.swift in Sources */,
 				F0D3421327FF44AB00CDE8B5 /* BindableType.swift in Sources */,
+				F028C5252806FCB0003D8947 /* PublicationsUseCaseProvider.swift in Sources */,
 				F028C51C280635E9003D8947 /* Article.swift in Sources */,
 				F0FEF82F27FA28CE00590C5B /* FeedServiceMock.swift in Sources */,
 				F03F354F2805659B0088A8EE /* FeedRepository.swift in Sources */,
