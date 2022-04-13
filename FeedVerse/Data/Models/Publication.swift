@@ -7,13 +7,14 @@
 
 import Foundation
 import GRDB
+import RxDataSources
 
 struct Publication {
     let id: String
     let title: String
     let description: String
     let link: String
-    let imageUrl: String
+    let imageUrl: String?
 
     init(id: String, title: String, description: String, link: String, imageUrl: String) {
         self.id = id
@@ -32,7 +33,12 @@ struct Publication {
     }
 }
 
-extension Publication: Equatable {
+extension Publication: IdentifiableType, Equatable {
+    typealias Identity = Int
+
+    var identity: Int {
+        id.hashValue
+    }
 
     static func == (lhs: Publication, rhs: Publication) -> Bool {
         guard lhs.id == rhs.id else {

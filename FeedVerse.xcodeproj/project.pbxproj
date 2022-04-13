@@ -25,6 +25,9 @@
 		F055636827F6F60100AA840E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F055636627F6F60100AA840E /* LaunchScreen.storyboard */; };
 		F07F883128071F62008C5B6E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F883028071F62008C5B6E /* AppCoordinator.swift */; };
 		F07F8833280723EC008C5B6E /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F8832280723EC008C5B6E /* AppDIContainer.swift */; };
+		F07F88392807404E008C5B6E /* PublicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F88382807404E008C5B6E /* PublicationsView.swift */; };
+		F07F883D28074182008C5B6E /* PublicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F883C28074182008C5B6E /* PublicationCell.swift */; };
+		F07F883F280741A9008C5B6E /* PublicationSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F883E280741A9008C5B6E /* PublicationSectionModel.swift */; };
 		F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F087D7B627FAE689008849F5 /* NetworkClient.swift */; };
 		F0A2A04127FBBCFC00C22BB6 /* Rx+CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2A04027FBBCFC00C22BB6 /* Rx+CustomView.swift */; };
 		F0A2A04427FC2B4D00C22BB6 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F0A2A04327FC2B4D00C22BB6 /* Differentiator */; };
@@ -159,6 +162,23 @@
 			path = FeedVerse;
 			sourceTree = "<group>";
 		};
+		F07F883628073EC5008C5B6E /* Publications */ = {
+			isa = PBXGroup;
+			children = (
+				F07F88382807404E008C5B6E /* PublicationsView.swift */,
+			);
+			path = Publications;
+			sourceTree = "<group>";
+		};
+		F07F883728073FF4008C5B6E /* PublicationTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F07F883C28074182008C5B6E /* PublicationCell.swift */,
+				F07F883E280741A9008C5B6E /* PublicationSectionModel.swift */,
+			);
+			path = PublicationTableView;
+			sourceTree = "<group>";
+		};
 		F087D7B527FAE67D008849F5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +251,7 @@
 		F0D4645827FB995A0033EB54 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F07F883628073EC5008C5B6E /* Publications */,
 				F0A2A03F27FBBCE300C22BB6 /* Utils */,
 				F0D4646127FBB4600033EB54 /* Base */,
 				F0B8DEA327F7D4AC0031E23E /* Home */,
@@ -424,6 +445,7 @@
 				F07F8833280723EC008C5B6E /* AppDIContainer.swift in Sources */,
 				F028C51E280635FA003D8947 /* Publication.swift in Sources */,
 				F028C51428060F07003D8947 /* DatabaseClient.swift in Sources */,
+				F07F88392807404E008C5B6E /* PublicationsView.swift in Sources */,
 				F0A9391227F88713009675BF /* FeedDTO.swift in Sources */,
 				F0D3421727FF489E00CDE8B5 /* BaseViewModel.swift in Sources */,
 				F0D4645727FB353D0033EB54 /* Feed.swift in Sources */,
@@ -434,9 +456,11 @@
 				F0A2A04127FBBCFC00C22BB6 /* Rx+CustomView.swift in Sources */,
 				F0D4646027FBADF10033EB54 /* ArticleCell.swift in Sources */,
 				F0D4645E27FBA6FD0033EB54 /* HomeView.swift in Sources */,
+				F07F883F280741A9008C5B6E /* PublicationSectionModel.swift in Sources */,
 				F02EEC8027FEDC2C004FCF8A /* UITableViewCell+Indentifier.swift in Sources */,
 				F087D7B727FAE689008849F5 /* NetworkClient.swift in Sources */,
 				F03F355128056AE60088A8EE /* FeedUseCase.swift in Sources */,
+				F07F883D28074182008C5B6E /* PublicationCell.swift in Sources */,
 				F02EEC8227FEDFC5004FCF8A /* HomeViewModel.swift in Sources */,
 				F03F354C280564A10088A8EE /* FeedRepositoryProvider.swift in Sources */,
 				F0A9391027F87F5D009675BF /* FeedService.swift in Sources */,
