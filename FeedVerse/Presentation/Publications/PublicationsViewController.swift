@@ -20,25 +20,26 @@ class PublicationsViewController: BaseViewController, HasCustomView {
 
     override func loadView() {
         view = PublicationsView(frame: .zero)
-        view.backgroundColor = .white
+        view.backgroundColor = .gray
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationBar()
-        setupFeedTableView()
+        setupPublicationsTableView()
+        bindViewModel()
     }
 
     private func setupNavigationBar() {
         self.navigationItem.title = String.sources
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.feedSettings, style: .done, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.edit, style: .done, target: nil, action: nil)
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
 
-    private func setupFeedTableView() {
+    private func setupPublicationsTableView() {
         mainView.publicationsTableView.register(PublicationCell.self, forCellReuseIdentifier: PublicationCell.reuseIdentifier)
         mainView.publicationsTableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.identifier)
         mainView.publicationsTableView.estimatedRowHeight = UITableView.automaticDimension
@@ -48,9 +49,9 @@ class PublicationsViewController: BaseViewController, HasCustomView {
 extension PublicationsViewController: BindableType {
 
     func bindViewModel() {
-
         viewModel.output.items
-            .map { [PublicationSection(header: String.tableViewHeader, publications: $0)] }
+            .debug()
+            .map { [PublicationSection(header: "", publications: $0)] }
             .bind(to: mainView.publicationsTableView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
 
@@ -61,6 +62,14 @@ extension PublicationsViewController: BindableType {
         mainView.publicationsTableView.rx.modelDeleted(Publication.self)
             .bind(to: viewModel.input.itemDeleted)
             .disposed(by: disposeBag)
+
+        // Work in progress
+        mainView.addButton.rx.tap
+            .withLatestFrom(mainView.addSourceTextField.rx.text.orEmpty.asObservable())
+            .debug()
+            .bind(to: viewModel.input.addNew)
+            .disposed(by: disposeBag)
+
     }
 
 }
