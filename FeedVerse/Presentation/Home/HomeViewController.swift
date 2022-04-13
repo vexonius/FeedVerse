@@ -75,6 +75,10 @@ extension HomeViewController: BindableType {
             .bind(to: viewModel.input.refreshTrigger)
             .disposed(by: disposeBag)
 
+        mainView.articlesTableView.rx.modelSelected(Article.self)
+            .bind(to: viewModel.input.selectedItem)
+            .disposed(by: disposeBag)
+
     }
 
 }

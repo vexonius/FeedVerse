@@ -31,4 +31,10 @@ final class AppCoordinator: AppCoordinatorProvider {
         navigationController.pushViewController(homeViewController, animated: true)
     }
 
+    func openExternalLink(link: String) {
+        guard let url = URL(string: link) else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        navigationController.present(safariViewController, animated: true)
+    }
+
 }

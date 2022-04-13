@@ -14,6 +14,7 @@ import UIKit
 
 protocol HomeViewModelInput {
     var refreshTrigger: PublishSubject<Void> { get }
+    var selectedItem: PublishSubject<Article> { get}
 }
 
 protocol HomeViewModelOutput {
@@ -36,13 +37,14 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
 
     private(set) var state: BehaviorRelay<State> = BehaviorRelay(value: .loading)
     private(set) var refreshTrigger: PublishSubject<Void>
+    private(set) var selectedItem: PublishSubject<Article>
+
 
     private let articlesUseCase: ArticlesUseCaseProvider
     private let publicationsUseCase: PublicationsUseCaseProvider
     private let coordinator: AppCoordinatorProvider
     private let scheduler = ConcurrentDispatchQueueScheduler(queue: .global(qos: .default))
 
-    init(articlesUseCase: ArticlesUseCaseProvider, publicationsUseCase: PublicationsUseCase) {
     init(articlesUseCase: ArticlesUseCaseProvider, publicationsUseCase: PublicationsUseCaseProvider, coordinator: AppCoordinatorProvider) {
         self.articlesUseCase = articlesUseCase
         self.publicationsUseCase = publicationsUseCase
@@ -50,6 +52,7 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
 
         state.accept(.loading)
         self.refreshTrigger = PublishSubject()
+        self.selectedItem = PublishSubject()
 
         super.init()
 
@@ -67,10 +70,19 @@ class HomeViewModel: BaseViewModel, HomeViewModelInput, HomeViewModelOutput {
             })
             .disposed(by: disposeBag)
 
-        refreshTrigger.subscribe(onNext: {
-            self.state.accept(.refreshing)
-        })
-        .disposed(by: disposeBag)
+        refreshTrigger
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.state.accept(.refreshing)
+            })
+            .disposed(by: disposeBag)
+
+        selectedItem
+            .withUnretained(self)
+            .subscribe(onNext: { owner, article in
+                owner.coordinator.openExternalLink(link: article.link)
+            })
+            .disposed(by: disposeBag)
 
     }
 
